@@ -1,0 +1,25 @@
+{
+  "name": "create-next-app-default",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^3.1.0",
+    "next": "^9.5.0",
+    "react": "^16.13.1",
+    "react-countup": "^4.3.3",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-spinners-kit": "^1.9.1",
+    "recharts": "^1.8.5"
+  }
+}
