@@ -1,22 +1,32 @@
 import { useState, useEffect } from 'react'
 import CountUp from 'react-countup'
 import Info from '../../pages/info'
-const District = ({ states }) => {
+import { MetroSpinner } from 'react-spinners-kit'
+const District = () => {
 
+    const [states, setStates] = useState({})
     const [rajjo, setRajjo] = useState()
     const [districts, setDistricts] = useState()
     const [district, setDistrict] = useState()
     const [result, setResult] = useState()
+    const [ loading, setLoading] = useState(false)
     // console.log(states[rajjo])
     useEffect(() => {
+        setLoading(true)
+        fetch('https://api.covid19india.org/state_district_wise.json')
+        .then( res => res.json())
+        .then( data => {
+            return setStates(data)
+        })
+        setLoading(false)
         setDistricts(states[rajjo])
         if (!district == '') {
             // console.log(states[rajjo].districtData[district])
             setResult(states[rajjo].districtData[district])
         }
+        
 
-
-    }, [rajjo, district])
+    }, [states])
 
     return (
         <div>
@@ -25,8 +35,16 @@ const District = ({ states }) => {
                     <h1 className="display-4">Corona Virus District Wise In India</h1>
                 </div>
             </div>
+            {
+                loading ? 
 
-
+                    <div className='col-xl-12 text-center'>
+                        <div className='center'>
+                            <MetroSpinner color='#0097F7' />
+                        </div>
+                    </div>   
+                 :
+                
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-6 mt-3'>
@@ -82,7 +100,7 @@ const District = ({ states }) => {
                 <div className='row my-5'>
                     <div className='col-xl-12 col-12'>
                         <div className='statname'>
-                            <h2 className='text-center font-weight-bold'>{result ? rajjo + ` রাজ্যের ${district} জেলায়  করোনায় মোট আক্তান্ত, মোট মৃত্যু এবং মোট সুস্থতার পরিসংখ্যান ` : ''}</h2>
+                            <h2 className='text-center font-weight-bold'>{result ? rajjo + ` রাজ্যের ${district} জেলায়  করোনায় মোট আক্রান্ত, মোট মৃত্যু এবং মোট সুস্থতার পরিসংখ্যান ` : ''}</h2>
                         </div>
                     </div>
                 </div>
@@ -139,8 +157,8 @@ const District = ({ states }) => {
 
             </div>
 
-
-
+                            
+            }
              <Info />                  
                             
         </div>
@@ -148,16 +166,6 @@ const District = ({ states }) => {
 }
 
 
-export async function getStaticProps() {
-    const res = await fetch('https://api.covid19india.org/state_district_wise.json')
-    const states = await res.json()
-
-    return {
-        props: {
-            states
-        }
-    }
-}
 
 
 export default District
