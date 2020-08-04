@@ -44,7 +44,7 @@ const Web = ({ posts }) => {
                     </div>              
                     <div className='col-xl-12 col-12 my-4'>
                         <div className='statname'>
-                            <h2 className='font-weight-bold text-center'>{item ? item.state +' রাজ্যের করোনায় মোট আক্তান্ত, মোট মৃত্যু এবং মোট সুস্থতার পরিসংখ্যান ' : ''}</h2>
+                            <h2 className='font-weight-bold text-center'>{item ? item.state +' রাজ্যের করোনায় মোট আক্রান্ত, মোট মৃত্যু এবং মোট সুস্থতার পরিসংখ্যান ' : ''}</h2>
                         </div>
                     </div>  
                 </div>
