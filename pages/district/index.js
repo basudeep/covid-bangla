@@ -18,16 +18,14 @@ const District = () => {
         .then( data => {
             return setStates(data)
         })
-        setLoading(false)
+        
         setDistricts(states[rajjo])
         if (!district == '') {
             // console.log(states[rajjo].districtData[district])
             setResult(states[rajjo].districtData[district])
         }
-        
-
-    }, [states])
-
+        setLoading(false)
+    },[ rajjo, district ])
     return (
         <div>
             <div className="jumbotron">
@@ -100,7 +98,7 @@ const District = () => {
                 <div className='row my-5'>
                     <div className='col-xl-12 col-12'>
                         <div className='statname'>
-                            <h2 className='text-center font-weight-bold'>{result ? rajjo + ` রাজ্যের ${district} জেলায়  করোনায় মোট আক্রান্ত, মোট মৃত্যু এবং মোট সুস্থতার পরিসংখ্যান ` : ''}</h2>
+                            <h2 className='text-center font-weight-bold'>{result ? rajjo + ` রাজ্যের ${district} জেলায়  করোনায় মোট আক্তান্ত, মোট মৃত্যু এবং মোট সুস্থতার পরিসংখ্যান ` : ''}</h2>
                         </div>
                     </div>
                 </div>
