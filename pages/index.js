@@ -33,7 +33,7 @@ const Home = () => {
     <div>
       <div className="jumbotron">
         <div className='container'>
-          <div className="row"><h1 className="mb-5">বৈশ্বিকভাবে পরিস্থিতি মহামারি আকার ধারণ করেছে। বর্তমানে এই ভাইরাসের কোন প্রতিষেধক না থাকায় সামাজিক দূরুত্ব বজায় রাখাই এটি নিয়ন্ত্রনের একমাত্র উপায়।</h1></div>
+          <div className="row"><h1 className="mb-5">বৈশ্বিকভাবে করোনা পরিস্থিতি মহামারি আকার ধারণ করেছে। বর্তমানে এই ভাইরাসের কোন প্রতিষেধক না থাকায় সামাজিক দূরুত্ব বজায় রাখাই এটি নিয়ন্ত্রনের একমাত্র উপায়।</h1></div>
           <div className="row">
               <Link href='/state'><a className=" btn btn btn-info text-white btn-lg font-weight-bold" >State Wise Case</a></Link>
               <Link href='/district'><a className="btn btn-outline-info btn-lg font-weight-bold">District Wise Case</a></Link>
