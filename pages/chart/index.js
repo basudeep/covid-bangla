@@ -62,7 +62,7 @@ const Chart = () => {
             }
             <style jsx global>{`
                 tspan {
-                    font-size: 12px;
+                    font-size: 10px;
                 }
                 .bg-white{
                     backgroud:#fff;
