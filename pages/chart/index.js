@@ -47,8 +47,8 @@ const Chart = () => {
                                 }}
                             >
                                 <CartesianGrid strokeDasharray="1 1" />
-                                <XAxis dataKey="date" />
-                                <YAxis type='text' dataKey="dailyconfirmed" />
+                                <XAxis dataKey="date"/>
+                                <YAxis type='number' domain={[0,80000]} />
                                 <Tooltip />
                                 <Legend />
                                 <Bar dataKey="dailyconfirmed" fill="#8884d8" />
