@@ -24,7 +24,7 @@ const Web = () => {
         <div>
             <div className="jumbotron">
                 <div className='container'>
-                    <h1>Corona Virus State Wise In India</h1>
+                    <h1>Corona Virus States Wise In India</h1>
                 </div>
             </div>
             {
