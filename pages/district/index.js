@@ -30,7 +30,7 @@ const District = () => {
         <div>
             <div className="jumbotron">
                 <div className='container'>
-                    <h1 className="display-4">Corona Virus Districts Wise In India</h1>
+                    <h1 className="display-4">Corona Virus District Wise In India</h1>
                 </div>
             </div>
             {
