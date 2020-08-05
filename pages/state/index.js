@@ -1,13 +1,21 @@
 import { useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 import Info from '../../pages/info'
-const Web = ({ posts }) => {
-
+import { MetroSpinner } from 'react-spinners-kit'
+const Web = () => {
+    const [ loading, setLoading ] = useState(false)
+    const [posts, setPosts] = useState([])
     const [item, setItem] = useState()
     const [value, setValue] = useState('West Bengal')
     useEffect(() => {
-         setItem(posts.filter((post) => post.state === value).shift())
-        // console.log(item)
+        setLoading(true)
+        fetch('https://api.covid19india.org/data.json')
+        .then( res => res.json())
+        .then( result =>{
+             setPosts(result.statewise)
+             return setItem(result.statewise.filter((post) => post.state === value ).shift())
+        })
+        setLoading(false)
     }, [value])
 
 
@@ -19,7 +27,20 @@ const Web = ({ posts }) => {
                     <h1>Corona Virus State Wise In India</h1>
                 </div>
             </div>
+            {
+            loading ? 
+                <div className='col-xl-12 text-center'>
+                    <div className='center'>
+                    <MetroSpinner color='#0097F7' />
+                    </div>
+                </div> 
+
+            :
             <div className='container'>
+
+        
+        
+
                 <div className='row'>
                     <div className='col-md-6'>
                             <label>Select State</label>
@@ -97,8 +118,9 @@ const Web = ({ posts }) => {
                         </div>
                     </div>
                 </div>
+           
             </div>
-
+            }
              <Info />   
              
         </div>
@@ -106,16 +128,16 @@ const Web = ({ posts }) => {
 }
 
 
-export async function getStaticProps() {
-    const res = await fetch('https://api.covid19india.org/data.json')
-    const posts = await res.json()
-    // console.log(posts.statewise)
-    return {
-        props: {
-            posts: posts.statewise
-        }
-    }
-}
+// export async function getStaticProps() {
+//     const res = await fetch('')
+//     const posts = await res.json()
+//     // console.log(posts.statewise)
+//     return {
+//         props: {
+//             posts: posts.statewise
+//         }
+//     }
+// }
 
 
 
